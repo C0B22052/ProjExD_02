@@ -1,5 +1,7 @@
-import pygame as pg
+import random
 import sys
+
+import pygame as pg
 
 
 def main():
@@ -14,6 +16,9 @@ def main():
     pg.draw.circle(bb_img,(255,0,0),(10,10),10)#中心に赤い円を描画
     bb_img.set_colorkey((0,0,0))#黒を透過させる
     tmr = 0
+    x = random.randint(0,1600)
+    y = random.randint(0,900)
+
 
 
 
@@ -25,7 +30,7 @@ def main():
         tmr += 1
         screen.blit(bg_img, [0, 0])
         screen.blit(kk_img, [900, 400])#こうかとん画像を900,440の位置にblit(貼り付ける)
-        screen.blit(bb_img, [600, 200])
+        screen.blit(bb_img, [x, y])
         pg.display.update()
         clock.tick(1000)
 
