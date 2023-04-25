@@ -47,6 +47,7 @@ def main():
     vx, vy = +1, +1
     bb_rct = bb_img.get_rect()
     bb_rct.center = x, y
+    
     tmr = 0
 
     while True:
@@ -76,6 +77,9 @@ def main():
         if not tate: #縦方向にはみ出ていたら
             vy *= -1
         screen.blit(bb_img,bb_rct) #練習問題３
+        if kk_rct.colliderect(bb_rct):   #kk_rctとbb_rectが衝突してるか
+            pg.display.update()
+            return   #衝突したら終了
         pg.display.update()
         clock.tick(1000)
 
